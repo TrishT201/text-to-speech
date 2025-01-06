@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech Converter</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text-to-Speech Converter</h1>
+    <p>Paste your text below and click "Speak" to hear it!</p>
+    <textarea id="text-input" placeholder="Paste your text here..."></textarea><br>
+    <button id="speak-button">Speak</button>
+    <button id="stop-button">Stop</button>
+
+    <script>
+        // Speak button functionality
+        document.getElementById("speak-button").onclick = function() {
+            const text = document.getElementById("text-input").value;
+            if (text.trim()) {
+                responsiveVoice.speak(text);
+            } else {
+                alert("Please paste some text first!");
+            }
+        };
+
+        // Stop button functionality
+        document.getElementById("stop-button").onclick = function() {
+            responsiveVoice.cancel();
+        };
+    </script>
+</body>
+</html>
