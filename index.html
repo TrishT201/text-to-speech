@@ -31,12 +31,11 @@
     <button id="stop-button">Stop</button>
 
     <script>
-        responsiveVoice.speak(text, "Fallback UK Female");
         // Speak button functionality
         document.getElementById("speak-button").onclick = function() {
             const text = document.getElementById("text-input").value;
             if (text.trim()) {
-                responsiveVoice.speak(text);
+                responsiveVoice.speak(text, "Fallback UK Female");
             } else {
                 alert("Please paste some text first!");
             }
